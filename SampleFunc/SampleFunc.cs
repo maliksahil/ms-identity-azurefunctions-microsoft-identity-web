@@ -25,7 +25,7 @@ namespace SampleFunc
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             var (authenticationStatus, authenticationResponse) =
-                await req.HttpContext.AuthenticateAzureFunctionAsync("Bearer");
+                await req.HttpContext.AuthenticateAzureFunctionAsync();
             if (!authenticationStatus) return authenticationResponse;
 
             var token = await _tokenAcquisition.GetAccessTokenForAppAsync("https://graph.microsoft.com/.default" );

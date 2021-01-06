@@ -7,7 +7,8 @@ namespace SampleFunc
 {
     public static class FunctionsAuthenticationHttpContextExtension
     {
-        public static async Task<(bool, IActionResult)> AuthenticateFunctionAsync(this HttpContext httpContext, string schemaName)
+        public static async Task<(bool, IActionResult)> AuthenticateAzureFunctionAsync(
+            this HttpContext httpContext, string schemaName)
         {
             var result = await httpContext.AuthenticateAsync(schemaName);            
             if (result.Succeeded)
